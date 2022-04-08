@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "VHcx6yAXxPQbXq5Te2vLNpO5CI/96uA2gTzf3ByufC99IKEdt3is5XZJ8IjF+pzdfsPhYn2PAAmXbzt4dRZvjQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\Stream-Reader-Writer-Json-Xml\\Stream-Reader-Writer-Json-Xml\\Stream-Reader-Writer-Json-Xml.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Clean__Laptop\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
