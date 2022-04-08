@@ -27,6 +27,8 @@ namespace Stream_Reader_Writer_Json_Xml
                 {
                     case (int)Choice.AddEmployee:
                         Employee employee = new Employee(GetInputStr("Write Name:"), GetInputInt("Write Salary:"));
+
+
                         department.AddEmployee(employee);
                         string result = JsonConvert.SerializeObject(department);
                         string path = @"C:\Users\Clean__Laptop\Desktop\Stream-Reader-Writer-Json-Xml\Stream-Reader-Writer-Json-Xml\Files\Database.json";

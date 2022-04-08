@@ -34,14 +34,13 @@ namespace Stream_Reader_Writer_Json_Xml
             }
 
             Department department1 = JsonConvert.DeserializeObject<Department>(result1);
-            foreach (var item in department1.employees)
-            {
-                if (item.Id == id)
-                {
-                    Console.WriteLine($"Id:{item.Id}\nName:{item.Name}\nSalary:{item.Salary}");
-                }
+            Employee emp = department1.employees.Find(item => item.Id == id);
 
+            if (id == null)
+            {
+                throw new NullReferenceException("Id-nulldir");
             }
+            Console.WriteLine($"Id:{emp.Id}\nName:{emp.Name}\nSalary:{emp.Salary}");
 
         }
         public void RemoveEmployee(int id)
@@ -57,22 +56,17 @@ namespace Stream_Reader_Writer_Json_Xml
             }
             Department department2 = JsonConvert.DeserializeObject<Department>(result1);
 
-            foreach (var item in department2.employees)
-            {
-                employees = department2.employees;
-                if (item.Id == id)
-                {
-                    employees.Remove(item);
-                    string result = JsonConvert.SerializeObject(department2);
-                    string path = @"C:\Users\Clean__Laptop\Desktop\Stream-Reader-Writer-Json-Xml\Stream-Reader-Writer-Json-Xml\Files\Database.json";
-                    using (StreamWriter stream = new StreamWriter(path))
-                    {
-                        stream.Write(result);
-                    }
-                    return;
-                }
-            }
 
+
+            Employee emp2 = department2.employees.Find(item => item.Id == id);
+            employees = department2.employees;
+            employees.Remove(emp2);
+            string result = JsonConvert.SerializeObject(department2);
+            string path = @"C:\Users\Clean__Laptop\Desktop\Stream-Reader-Writer-Json-Xml\Stream-Reader-Writer-Json-Xml\Files\Database.json";
+            using (StreamWriter stream = new StreamWriter(path))
+            {
+                stream.Write(result);
+            }
         }
     }
 
