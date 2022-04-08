@@ -10,13 +10,23 @@ namespace Stream_Reader_Writer_Json_Xml
         public int Id { get; set; }
         public int id { get; set; }
         public string Name { get; set; }
-
-        public List<Employee> employees = new List<Employee>();
-
-        public Department()
+        private List<Employee> _employees;
+        public List<Employee> employees { 
+            get
+            {
+                return _employees;
+            }
+            set
+            {
+                _employees = value;
+            }
+        }
+        public Department(string name)
         {
+            Name = name;
             id++;
             Id = id;
+            _employees = new List<Employee>();
         }
 
         public void AddEmployee(Employee employe)
@@ -24,7 +34,7 @@ namespace Stream_Reader_Writer_Json_Xml
             employees.Add(employe);
 
         }
-        public void GetEmployeeById(int id)
+        public void GetEmployeeById(int? id)
         {
             string result1;
             string path1 = @"C:\Users\Clean__Laptop\Desktop\Stream-Reader-Writer-Json-Xml\Stream-Reader-Writer-Json-Xml\Files\Database.json";
@@ -34,7 +44,7 @@ namespace Stream_Reader_Writer_Json_Xml
             }
 
             Department department1 = JsonConvert.DeserializeObject<Department>(result1);
-            Employee emp = department1.employees.Find(item => item.Id == id);
+            Employee emp =department1.employees.Find(item => item.Id == id);
 
             if (id == null)
             {

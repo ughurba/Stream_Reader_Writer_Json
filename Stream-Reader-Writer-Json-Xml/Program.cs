@@ -18,7 +18,7 @@ namespace Stream_Reader_Writer_Json_Xml
                 File.Create(@"C:\Users\Clean__Laptop\Desktop\Stream-Reader-Writer-Json-Xml\Stream-Reader-Writer-Json-Xml\Files\Database.json");
             }
 
-            Department department = new Department();
+            Department department = new Department("Departament");
             while (true)
             {
                 Console.WriteLine($"1.Add employee\n2.Get employee by id\n3.Remove employee\n0.Quit");
